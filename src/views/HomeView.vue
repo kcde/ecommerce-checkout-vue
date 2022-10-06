@@ -8,7 +8,6 @@ export default {
 
 <template>
   <main>
-    <h1>fall limited edition sneakers</h1>
     <TheHeader />
   </main>
 </template>
