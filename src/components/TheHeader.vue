@@ -3,14 +3,24 @@ import BrandLogo from "./icons/BrandLogo.vue";
 import MenuIcon from "./icons/MenuIcon.vue";
 import CartIcon from "./icons/CartIcon.vue";
 import TheAvatar from "./TheAvatar.vue";
-export default { components: { BrandLogo, MenuIcon, CartIcon, TheAvatar } };
+export default {
+  emits: ["open-menu"],
+  components: { BrandLogo, MenuIcon, CartIcon, TheAvatar },
+  methods: {
+    openMenu() {
+      console.log("opening menu");
+
+      this.$emit("open-menu");
+    },
+  },
+};
 </script>
 <template>
   <header class="flex justify-between">
     <div class="flex align-center">
-      <div class="menu-icon-container">
-        <MenuIcon class="mr-4" />
-      </div>
+      <button class="menu-icon-container">
+        <MenuIcon class="mr-4" @click="openMenu" />
+      </button>
       <BrandLogo />
 
       <nav class="menu flex align-center gap-8 ml-13">

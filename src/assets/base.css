@@ -18,13 +18,15 @@
   --grayish-blue: hsl(220, 14%, 75%);
   --light-grayish-blue: hsl(223, 64%, 98%);
   --white: hsl(0, 0%, 100%);
-  --black: hsl(0, 0%, 0%);
+  --black: rgb(0, 0, 0);
 
   --clr-primary: var(--very-dark-blue);
   --clr-secondary: var(--dark-grayish-blue);
   --clr-accent: var(--orange);
 
   --base-spacing: 4;
+  --bg-overlay: rgba(0, 0, 0, 0.75);
+  --overlay-z-index: 100;
 
   --space-1: calc(var(--base-spacing) * 1px);
   --space-2: calc(var(--base-spacing) * 2px);
@@ -63,6 +65,12 @@ a {
 img {
   max-width: 100%;
   vertical-align: center;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /* margins */
@@ -173,6 +181,10 @@ img {
 /* layout */
 .flex {
   display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .align-center {
