@@ -178,7 +178,7 @@ button {
   gap: calc(var(--base-spacing) * 8px);
 }
 
-/* layout */
+/* utilities */
 .flex {
   display: flex;
 }
@@ -197,4 +197,13 @@ button {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.centered {
+  display: grid;
+  place-items: center;
+}
+
+.relative {
+  position: relative;
 }

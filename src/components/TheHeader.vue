@@ -24,11 +24,11 @@ export default {
       <BrandLogo />
 
       <nav class="menu flex align-center gap-8 ml-13">
-        <a href="#">Collections</a>
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <div class="centered relative"><a href="#">Collections</a></div>
+        <div class="centered relative"><a href="#">Men</a></div>
+        <div class="centered relative"><a href="#">Women</a></div>
+        <div class="centered relative"><a href="#">About</a></div>
+        <div class="centered relative"><a href="#">Contact</a></div>
       </nav>
     </div>
 
@@ -41,14 +41,18 @@ export default {
 </template>
 <style scoped lang="scss">
 header {
-  padding: 24px;
+  padding: 1.5rem 1.5rem 0 1.5rem;
   @media (min-width: 768px) {
     border-bottom: 2px solid var(--light-grayish-blue);
   }
 }
 .menu {
   display: none;
+  height: 100%;
 
+  & > div {
+    height: 100%;
+  }
   @media (min-width: 768px) {
     display: inherit;
   }
@@ -62,6 +66,26 @@ header {
 }
 .menu a {
   color: var(--clr-secondary);
+  transition: color 250ms cubic-bezier(0.32, 0.89, 0.83, 0.67);
+
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    background-color: var(--clr-accent);
+    opacity: 0;
+    width: 100%;
+    height: 4px;
+    left: 0;
+    transition: opacity 250ms cubic-bezier(0.32, 0.89, 0.83, 0.67);
+  }
+
+  &:hover {
+    color: var(--clr-primary);
+    &::after {
+      opacity: 1;
+    }
+  }
 }
 
 .cart-container {
@@ -69,5 +93,9 @@ header {
   @media (min-width: 768px) {
     margin-right: 46px;
   }
+}
+
+.header-side {
+  margin-bottom: 1.5rem;
 }
 </style>
