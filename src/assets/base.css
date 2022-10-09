@@ -27,6 +27,7 @@
   --base-spacing: 4;
   --bg-overlay: rgba(0, 0, 0, 0.75);
   --overlay-z-index: 100;
+  --animation-timing: cubic-bezier(0.32, 0.89, 0.83, 0.67);
 
   --space-1: calc(var(--base-spacing) * 1px);
   --space-2: calc(var(--base-spacing) * 2px);
