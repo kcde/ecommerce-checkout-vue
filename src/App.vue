@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <RouterView @open-menu="showMobileMenu" @close-menu="hideMobileMenu" />
+    <RouterView @open-menu="showMobileMenu" />
     <Teleport to="body">
       <TheOverlay :show="overlayOpen" />
     </Teleport>
@@ -25,11 +25,11 @@
 }
 
 .mobile-menu-enter-active {
-  transition: all 250ms cubic-bezier(0.32, 0.89, 0.83, 0.67);
+  transition: all 250ms var(--animation-timing);
 }
 
 .mobile-menu-leave-active {
-  transition: opacity 150ms ease-in;
+  transition: opacity 150ms var(--animation-timing);
 }
 
 .mobile-menu-enter-to {
