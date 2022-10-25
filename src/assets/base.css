@@ -22,7 +22,9 @@
 
   --clr-primary: var(--very-dark-blue);
   --clr-secondary: var(--dark-grayish-blue);
+  --clr-muted-text: var(--grayish-blue);
   --clr-accent: var(--orange);
+  --clr-accent-support: var(--pale-orange);
 
   --base-spacing: 4;
   --bg-overlay: rgba(0, 0, 0, 0.75);
@@ -69,6 +71,7 @@ img {
 }
 
 button {
+  padding: 0;
   background-color: transparent;
   border: none;
   cursor: pointer;

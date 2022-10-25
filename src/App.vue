@@ -4,11 +4,6 @@
     <Teleport to="body">
       <TheOverlay :show="overlayOpen" />
     </Teleport>
-    <Teleport to="body">
-      <TheModal>
-        <p>modal</p>
-      </TheModal>
-    </Teleport>
     <Transition name="mobile-menu">
       <MobileMenu v-if="mobileMenuOpen" @close-menu="hideMobileMenu" />
     </Transition>
@@ -49,10 +44,9 @@
 <script>
 import TheOverlay from "./components/TheOverlay.vue";
 import MobileMenu from "./components/MobileMenu.vue";
-import TheModal from "./components/TheModal.vue";
 
 export default {
-  components: { TheOverlay, MobileMenu, TheModal },
+  components: { TheOverlay, MobileMenu },
   data() {
     return {
       overlayOpen: false,

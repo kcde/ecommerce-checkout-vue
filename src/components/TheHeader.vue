@@ -34,8 +34,9 @@ export default {
 
     <div class="flex align-center header-side">
       <div class="cart-container"><CartIcon shade="dark" /></div>
-
-      <TheAvatar />
+      <div>
+        <TheAvatar />
+      </div>
     </div>
   </header>
 </template>
