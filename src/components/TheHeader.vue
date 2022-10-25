@@ -41,9 +41,12 @@ export default {
 </template>
 <style scoped lang="scss">
 header {
-  padding: 1.5rem 1.5rem 0 1.5rem;
+  padding-top: 1.5rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
   @media (min-width: 768px) {
     border-bottom: 2px solid var(--light-grayish-blue);
+    padding-top: 0;
   }
 }
 .menu {
@@ -96,6 +99,8 @@ header {
 }
 
 .header-side {
-  margin-bottom: 1.5rem;
+  @media (min-width: 768px) {
+    padding: 1.5rem 0;
+  }
 }
 </style>
