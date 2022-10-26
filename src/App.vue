@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container relative">
     <RouterView @open-menu="showMobileMenu" />
     <Teleport to="body">
       <TheOverlay :show="overlayOpen" />

@@ -3,20 +3,32 @@ import BrandLogo from "./icons/BrandLogo.vue";
 import MenuIcon from "./icons/MenuIcon.vue";
 import CartIcon from "./icons/CartIcon.vue";
 import TheAvatar from "./TheAvatar.vue";
+import TheCart from "./TheCart.vue";
 export default {
   emits: ["open-menu"],
-  components: { BrandLogo, MenuIcon, CartIcon, TheAvatar },
+  components: { BrandLogo, MenuIcon, CartIcon, TheAvatar, TheCart },
+  data() {
+    return {
+      showCart: false,
+    };
+  },
   methods: {
     openMenu() {
       console.log("opening menu");
 
       this.$emit("open-menu");
     },
+    toggleCart() {
+      this.showCart = !this.showCart;
+    },
   },
 };
 </script>
 <template>
-  <header class="flex justify-between">
+  <header class="flex justify-between relative">
+    <Transition name="cart">
+      <TheCart v-if="showCart" />
+    </Transition>
     <div class="flex align-center">
       <button class="menu-icon-container">
         <MenuIcon class="mr-4" @click="openMenu" />
@@ -33,7 +45,7 @@ export default {
     </div>
 
     <div class="flex align-center header-side">
-      <div class="cart-container"><CartIcon shade="dark" /></div>
+      <div class="cart-container" @click="toggleCart"><CartIcon /></div>
       <div>
         <TheAvatar />
       </div>
@@ -103,5 +115,46 @@ header {
   @media (min-width: 768px) {
     padding: 1.5rem 0;
   }
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    /* background: red; */
+    transform: translateY(-20px);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateY(-10px);
+  }
+  70% {
+  }
+  100% {
+    opacity: 1;
+    /* background: blue; */
+    transform: translateY(20rem);
+  }
+}
+
+.cart-enter-active,
+.cart-leave-active {
+  transition: all 350ms ease;
+}
+
+.cart-enter-from {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.cart-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.cart-enter-to,
+.cart-leave-from {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
