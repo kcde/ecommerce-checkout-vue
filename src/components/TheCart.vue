@@ -22,12 +22,12 @@ export default {};
   box-shadow: 0px 10px 25px -5px var(--grayish-blue);
   top: calc(100% + 1rem);
 
-  @media (min-width: 768px) {
+  @media (min-width: 568px) {
     width: 100%;
     max-width: 360px;
     right: 0.5rem;
     left: initial;
-    top: 80%;
+    top: 5rem;
   }
 
   &__head {

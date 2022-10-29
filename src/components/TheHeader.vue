@@ -14,8 +14,6 @@ export default {
   },
   methods: {
     openMenu() {
-      console.log("opening menu");
-
       this.$emit("open-menu");
     },
     toggleCart() {
@@ -54,12 +52,18 @@ export default {
 </template>
 <style scoped lang="scss">
 header {
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
   padding-top: 1.5rem;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
   @media (min-width: 768px) {
+    position: static;
     border-bottom: 2px solid var(--light-grayish-blue);
     padding-top: 0;
+    padding-bottom: 0;
   }
 }
 .menu {
@@ -105,9 +109,10 @@ header {
 }
 
 .cart-container {
-  margin-right: 22px;
+  margin-right: 1.375rem;
+  cursor: pointer;
   @media (min-width: 768px) {
-    margin-right: 46px;
+    margin-right: 2.875rem;
   }
 }
 

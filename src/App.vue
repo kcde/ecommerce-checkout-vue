@@ -1,6 +1,7 @@
 <template>
   <div class="container relative">
     <RouterView @open-menu="showMobileMenu" />
+
     <Teleport to="body">
       <TheOverlay :show="overlayOpen" />
     </Teleport>
@@ -56,12 +57,10 @@ export default {
 
   methods: {
     showMobileMenu() {
-      console.log("ALSO OPEINIG MENU");
       this.mobileMenuOpen = true;
       this.overlayOpen = true;
     },
     hideMobileMenu() {
-      console.log("ALSO closing MENU");
       this.mobileMenuOpen = false;
       this.overlayOpen = false;
     },

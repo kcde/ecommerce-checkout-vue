@@ -4,9 +4,17 @@ import TheBadge from "../components/TheBadge.vue";
 import TheButton from "../components/TheButton.vue";
 import TheHeader from "../components/TheHeader.vue";
 import CartIcon from "../components/icons/CartIcon.vue";
+import ImageSlider from "../components/ImageSlider.vue";
 export default {
   emits: ["open-menu"],
-  components: { TheHeader, TheBadge, AmountInput, TheButton, CartIcon },
+  components: {
+    TheHeader,
+    TheBadge,
+    AmountInput,
+    TheButton,
+    CartIcon,
+    ImageSlider,
+  },
 };
 </script>
 
@@ -14,6 +22,9 @@ export default {
   <TheHeader @open-menu="$emit('open-menu')" />
 
   <main>
+    <section class="relative">
+      <ImageSlider />
+    </section>
     <section class="product-details">
       <p class="tagline">sneaker company</p>
       <h1 class="product-name">fall limited edition sneakers</h1>

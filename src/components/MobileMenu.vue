@@ -1,9 +1,28 @@
 <script>
 import CloseIcon from "./icons/CloseIcon.vue";
-export default { components: { CloseIcon }, emits: ["close-menu"] };
+import { isOverlayClickedHandler } from "../utils";
+export default {
+  components: { CloseIcon },
+  emits: ["close-menu"],
+
+  methods: {
+    clickListner(e) {
+      isOverlayClickedHandler(e.target, () => {
+        this.$emit("close-menu");
+      });
+    },
+  },
+
+  mounted() {
+    window.addEventListener("click", this.clickListner);
+  },
+  beforeUnmount() {
+    window.removeEventListener("click", this.clickListner);
+  },
+};
 </script>
 <template>
-  <div class="mobile-menu">
+  <div class="mobile-menu" ref="mobileMenu">
     <button class="close-icon-container" @click="$emit('close-menu')">
       <CloseIcon />
     </button>
