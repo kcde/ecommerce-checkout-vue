@@ -2,7 +2,6 @@
 // TODO: implement apple pie giraffe image carousel
 // FIXME: all image will be show but use the opacity to hide and show image
 // REFACTOR:  also make the main image to have a hover effect like that of seyi.dev's own //fingers crossed on that
-import { mapState } from "vuex";
 import NextButton from "./NextButton.vue";
 import PrevButton from "./PrevButton.vue";
 export default {
