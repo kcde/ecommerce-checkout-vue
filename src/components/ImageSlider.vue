@@ -2,6 +2,8 @@
 // TODO: implement apple pie giraffe image carousel
 // FIXME: all image will be show but use the opacity to hide and show image
 // REFACTOR:  also make the main image to have a hover effect like that of seyi.dev's own //fingers crossed on that
+
+//TODO: make image full width same as the slide section width
 import NextButton from "./NextButton.vue";
 import PrevButton from "./PrevButton.vue";
 export default {
@@ -56,32 +58,37 @@ export default {
 <style scoped lang="scss">
 .slider {
   width: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+
+  @media (min-width: 758px) {
+    /* max-width: 400px; */
+    border-radius: 10px;
+  }
 
   &__image {
     height: clamp(200px, 100vh, 300px);
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    margin: 0 auto;
+    @media (min-width: 1024px) {
+      height: clamp(200px, 100vh, 450px);
+    }
 
     .active {
       opacity: 1;
       transform: scale(1);
-    }
-    @media (min-width: 758px) {
-      max-width: 400px;
-      border-radius: 10px;
     }
     img {
       position: absolute;
       left: 0;
       top: 0;
       object-fit: cover;
-      height: 100%;
       width: 100%;
+      height: 100%;
       opacity: 0;
       transform: scale(1.1);
       transition: all 350ms ease;
+      z-index: -1;
     }
   }
 

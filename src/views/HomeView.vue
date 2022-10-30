@@ -22,48 +22,70 @@ export default {
   <TheHeader @open-menu="$emit('open-menu')" />
 
   <main>
-    <section class="relative">
-      <ImageSlider />
-    </section>
-    <section class="product-details">
-      <p class="tagline">sneaker company</p>
-      <h1 class="product-name">fall limited edition sneakers</h1>
-      <p class="product-description">
-        These low-profile sneakers are your perfect casual wear companion.
-        Featuring a durable rubber outer sole, they’ll withstand everything the
-        weather can offer
-      </p>
+    <div class="main-container">
+      <section class="relative">
+        <ImageSlider />
+      </section>
+      <section class="product-details">
+        <div class="product-details__container">
+          <p class="tagline">sneaker company</p>
+          <h1 class="product-name">fall limited edition sneakers</h1>
+          <p class="product-description">
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they’ll withstand everything
+            the weather can offer
+          </p>
 
-      <div class="price">
-        <div class="flex gap-3 align-center">
-          <p class="price__main">$125.00</p>
-          <div class="price__discount">
-            <TheBadge>50%</TheBadge>
+          <div class="price">
+            <div class="flex gap-3 align-center">
+              <p class="price__main">$125.00</p>
+              <div class="price__discount">
+                <TheBadge>50%</TheBadge>
+              </div>
+            </div>
+            <p class="price__old">$250.00</p>
+          </div>
+          <div class="product-checkout">
+            <div class="amount-input-container"><AmountInput /></div>
+            <div class="add-to-cart">
+              <TheButton>
+                <div class="add-to-cart__button">
+                  <span> <CartIcon color="#ffffff" /> </span>Add to cart
+                </div>
+              </TheButton>
+            </div>
           </div>
         </div>
-        <p class="price__old">$250.00</p>
-      </div>
-      <div class="product-checkout">
-        <AmountInput />
-        <div>
-          <TheButton>
-            <div class="add-to-cart">
-              <span> <CartIcon color="#ffffff" /> </span>Add to cart
-            </div>
-          </TheButton>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 </template>
 
 <style scoped lang="scss">
+.main-container {
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 0 3.125rem;
+    margin-top: 4rem;
+    & > * {
+      flex: 1;
+    }
+  }
+}
 .price {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 1.3rem;
   margin-bottom: 2rem;
+
+  @media (min-width: 1024px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
   &__main {
     font-weight: 700;
     font-size: 1.5rem;
@@ -99,19 +121,36 @@ export default {
 
 .product-details {
   padding: 1.5rem;
+  @media (min-width: 1024px) {
+    padding: 0 3rem;
+  }
 }
 
 .add-to-cart {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  gap: var(--space-4);
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    gap: var(--space-4);
+  }
 }
 
 .product-checkout {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    & > * {
+      flex-grow: 1;
+      /* flex-basis: 100px; */
+    }
+
+    .add-to-cart {
+      flex-grow: 2;
+    }
+  }
 }
 </style>

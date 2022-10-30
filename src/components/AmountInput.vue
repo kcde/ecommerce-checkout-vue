@@ -62,6 +62,7 @@ input {
   text-align: center;
   font-weight: bold;
   font-size: 1rem;
+  width: 50px;
 }
 
 input::-webkit-outer-spin-button,
