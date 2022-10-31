@@ -17,8 +17,11 @@ export default {
     openMenu() {
       this.$emit("open-menu");
     },
-    toggleCart() {
+    openCart() {
       this.showCart = !this.showCart;
+    },
+    closeCart() {
+      this.showCart = false;
     },
   },
 
@@ -30,7 +33,7 @@ export default {
 <template>
   <header class="flex justify-between relative">
     <Transition name="cart">
-      <TheCart v-if="showCart" />
+      <TheCart v-if="showCart" @close-cart="closeCart" />
     </Transition>
     <div class="flex align-center">
       <button class="menu-icon-container">
@@ -48,7 +51,7 @@ export default {
     </div>
 
     <div class="flex align-center header-side">
-      <div class="cart-container" @click="toggleCart">
+      <div class="cart-container" @click="openCart">
         <CartIcon />
         <Transition name="cart-count">
           <span class="cart-count" v-if="cartCount > 0">{{ cartCount }}</span>

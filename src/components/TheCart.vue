@@ -1,13 +1,29 @@
 <script>
 import { mapGetters } from "vuex";
+// import { outsideClickHandle } from "../utils";
 export default {
+  emits: ["close-cart"],
   computed: {
     ...mapGetters("cart", ["cartCount", "cart"]),
+  },
+  methods: {
+    outsideClickListener(e) {
+      //check if the clicked items is not the cart && not the cart icon
+      if (!e.target.closest(".cart") && !e.target.closest(".cart-container")) {
+        this.$emit("close-cart");
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener("click", this.outsideClickListener);
+  },
+  unmounted() {
+    window.removeEventListener("click", this.outsideClickListener);
   },
 };
 </script>
 <template>
-  <div class="cart">
+  <div class="cart" ref="cart">
     <div class="cart__head">
       <h6>Cart</h6>
     </div>
