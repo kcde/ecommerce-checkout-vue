@@ -69,6 +69,7 @@ header {
   padding-right: 1.5rem;
   padding-left: 1.5rem;
   padding-bottom: 1.5rem;
+  z-index: 5;
   @media (min-width: 768px) {
     position: static;
     border-bottom: 2px solid var(--light-grayish-blue);

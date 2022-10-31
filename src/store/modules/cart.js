@@ -7,7 +7,7 @@ export default {
   },
   mutations: {
     addToCart(state, { productCount }) {
-      state.cart.push({ count: productCount });
+      state.cart.push({ count: productCount, id: Date.now() });
     },
   },
   actions: {
@@ -22,6 +22,9 @@ export default {
         state.cart.length &&
         state.cart.map((el) => el.count).reduce((prev, curr) => prev + curr)
       );
+    },
+    cart(state) {
+      return state.cart;
     },
   },
 };

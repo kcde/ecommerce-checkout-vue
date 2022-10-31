@@ -1,5 +1,10 @@
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters("cart", ["cartCount", "cart"]),
+  },
+};
 </script>
 <template>
   <div class="cart">
@@ -8,7 +13,9 @@ export default {};
     </div>
 
     <div class="cart__body relative">
-      <p class="empty-text">Your cart is empty</p>
+      <p class="empty-text" v-if="cartCount <= 0">Your cart is empty</p>
+
+      <div v-for="item in cart" :key="item.id">{{ item }}</div>
     </div>
   </div>
 </template>
