@@ -42,7 +42,7 @@ export default {
   position: absolute;
   right: 0.5rem;
   left: 0.5rem;
-  box-shadow: 0px 10px 25px -5px var(--grayish-blue);
+  box-shadow: 0px 10px 25px -5px var(--very-dark-blue);
   top: calc(100% + 1rem);
 
   @media (min-width: 568px) {
