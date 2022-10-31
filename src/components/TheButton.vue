@@ -1,8 +1,10 @@
 <script>
-export default {};
+export default {
+  emits: ["click"],
+};
 </script>
 <template>
-  <button class="button">
+  <button class="button" @click="$emit('click')">
     <slot></slot>
   </button>
 </template>

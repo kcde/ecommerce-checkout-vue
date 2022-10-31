@@ -124,9 +124,13 @@ export default {
   }
 
   &__thumbnails {
-    display: flex;
     gap: 1.5rem;
     margin-top: 2rem;
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: flex;
+    }
 
     & > * {
       border-radius: 10px;

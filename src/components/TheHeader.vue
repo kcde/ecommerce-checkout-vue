@@ -4,6 +4,7 @@ import MenuIcon from "./icons/MenuIcon.vue";
 import CartIcon from "./icons/CartIcon.vue";
 import TheAvatar from "./TheAvatar.vue";
 import TheCart from "./TheCart.vue";
+import { mapGetters } from "vuex";
 export default {
   emits: ["open-menu"],
   components: { BrandLogo, MenuIcon, CartIcon, TheAvatar, TheCart },
@@ -19,6 +20,10 @@ export default {
     toggleCart() {
       this.showCart = !this.showCart;
     },
+  },
+
+  computed: {
+    ...mapGetters("cart", ["cartCount"]),
   },
 };
 </script>
@@ -43,7 +48,12 @@ export default {
     </div>
 
     <div class="flex align-center header-side">
-      <div class="cart-container" @click="toggleCart"><CartIcon /></div>
+      <div class="cart-container" @click="toggleCart">
+        <CartIcon />
+        <Transition name="cart-count">
+          <span class="cart-count" v-if="cartCount > 0">{{ cartCount }}</span>
+        </Transition>
+      </div>
       <div>
         <TheAvatar />
       </div>
@@ -110,9 +120,23 @@ header {
 
 .cart-container {
   margin-right: 1.375rem;
+  padding: 7px;
   cursor: pointer;
+  position: relative;
   @media (min-width: 768px) {
     margin-right: 2.875rem;
+  }
+
+  .cart-count {
+    background-color: var(--clr-accent);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
 
@@ -147,18 +171,31 @@ header {
   transition: all 350ms ease;
 }
 
+.cart-count-enter-active,
+.cart-count-leave-active {
+  transition: all 200ms ease-out;
+}
+
 .cart-enter-from {
   opacity: 0;
   transform: translateY(-10px);
 }
 
-.cart-leave-to {
+.cart-count-enter-from {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(-5px);
+}
+
+.cart-leave-to,
+.cart-count-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
 }
 
 .cart-enter-to,
-.cart-leave-from {
+.cart-leave-from,
+.cart-count-enter-to,
+.cart-count-leave-from {
   opacity: 1;
   transform: translateY(0);
 }

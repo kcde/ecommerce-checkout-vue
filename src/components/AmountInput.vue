@@ -7,9 +7,7 @@ export default {
   components: { MinusIcon, PlusIcon },
 
   data() {
-    return {
-      amount: 0,
-    };
+    return {};
   },
 
   methods: {
@@ -22,12 +20,19 @@ export default {
     },
     ...mapActions(["updateProductToCartCount"]),
   },
+  computed: {
+    amount: {
+      get() {
+        return this.$store.state.productToCartCount;
+      },
 
-  watch: {
-    amount() {
-      this.updateProductToCartCount({ count: this.amount });
+      set(value) {
+        this.updateProductToCartCount({ count: value });
+      },
     },
   },
+
+  watch: {},
 
   created() {
     // to always sync with the global state

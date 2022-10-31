@@ -1,10 +1,27 @@
 export default {
+  namespaced: true,
   state() {
     return {
-      cart: [],
+      cart: [], //an object whit product is and count should be added
     };
   },
-  mutations: {},
-  actions: {},
-  getters: {},
+  mutations: {
+    addToCart(state, { productCount }) {
+      state.cart.push({ count: productCount });
+    },
+  },
+  actions: {
+    addToCart(context, payload) {
+      context.commit("addToCart", payload);
+    },
+  },
+  getters: {
+    cartCount(state) {
+      //expecting just one producr
+      return (
+        state.cart.length &&
+        state.cart.map((el) => el.count).reduce((prev, curr) => prev + curr)
+      );
+    },
+  },
 };
