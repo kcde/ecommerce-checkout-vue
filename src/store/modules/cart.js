@@ -6,8 +6,8 @@ export default {
     };
   },
   mutations: {
-    addToCart(state, { productCount }) {
-      state.cart.push({ count: productCount, id: Date.now() });
+    addToCart(state, { productCount, price }) {
+      state.cart.push({ count: productCount, price, id: Date.now() });
     },
   },
   actions: {

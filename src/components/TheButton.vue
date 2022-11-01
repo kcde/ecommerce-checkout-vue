@@ -15,9 +15,10 @@ export default {
   border-radius: 10px;
   color: var(--white);
   font-weight: 700;
+  font-size: 1rem;
   width: 100%;
   transition: opacity 250ms var(--animation-timing);
-  box-shadow: 0 40px 15px -10px var(--clr-accent-support);
+  box-shadow: 0 15px 10px -10px var(--clr-accent-support);
   &:hover {
     opacity: 0.8;
   }

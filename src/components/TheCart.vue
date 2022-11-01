@@ -1,7 +1,9 @@
 <script>
 import { mapGetters } from "vuex";
-// import { outsideClickHandle } from "../utils";
+import CartItem from "./CartItem.vue";
+import TheButton from "./TheButton.vue";
 export default {
+  components: { CartItem, TheButton },
   emits: ["close-cart"],
   computed: {
     ...mapGetters("cart", ["cartCount", "cart"]),
@@ -30,8 +32,21 @@ export default {
 
     <div class="cart__body relative">
       <p class="empty-text" v-if="cartCount <= 0">Your cart is empty</p>
+      <div v-else>
+        <div class="cart-items">
+          <CartItem
+            v-for="item in cart"
+            :key="item.id"
+            :imageUrl="$store.state.product.images.thumbnails[0].url"
+            :title="$store.state.product.title"
+            :price="item.price"
+            :count="item.count"
+          />
+        </div>
+        <TheButton>Checkout</TheButton>
+      </div>
 
-      <div v-for="item in cart" :key="item.id">{{ item }}</div>
+      <!-- <div v-for="item in cart" :key="item.id">{{ item }}</div> -->
     </div>
   </div>
 </template>
@@ -60,7 +75,17 @@ export default {
     border-bottom: 2px solid var(--light-grayish-blue);
   }
   &__body {
-    min-height: 11.75rem;
+    min-height: 5.75rem;
+    max-height: 400px;
+    overflow: scroll;
+    padding: var(--space-6);
+  }
+
+  .cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
   }
 
   .empty-text {
@@ -71,7 +96,5 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-
-  /* v-enter- */
 }
 </style>

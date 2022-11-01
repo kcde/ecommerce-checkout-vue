@@ -16,7 +16,11 @@
   max-width: 69.5rem;
   margin: 0 auto;
 }
-
+.mobile-menu-container {
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
 .mobile-menu-enter-from {
   left: -200%;
 }

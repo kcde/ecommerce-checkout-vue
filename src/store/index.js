@@ -44,6 +44,14 @@ const store = createStore({
       context.commit("updateProductToCartCount", payload);
     },
   },
+  getters: {
+    productPrice(state) {
+      if (state.product.discount) {
+        return (state.product.price / 100) * state.product.discount;
+      }
+      return state.product.price;
+    },
+  },
 });
 
 export default store;

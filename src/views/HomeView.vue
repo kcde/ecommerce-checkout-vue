@@ -5,7 +5,7 @@ import TheButton from "../components/TheButton.vue";
 import TheHeader from "../components/TheHeader.vue";
 import CartIcon from "../components/icons/CartIcon.vue";
 import ImageSlider from "../components/ImageSlider.vue";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   emits: ["open-menu"],
   components: {
@@ -18,12 +18,21 @@ export default {
   },
   methods: {
     addProductToCart() {
-      this.addToCart({ productCount: this.$store.state.productToCartCount });
+      this.addToCart({
+        productCount: this.$store.state.productToCartCount,
+        price: this.productPrice,
+      });
       this.updateProductToCartCount({ count: 0 });
     },
 
     ...mapActions("cart", ["addToCart"]),
     ...mapActions(["updateProductToCartCount"]),
+  },
+  computed: {
+    ...mapGetters(["productPrice"]),
+  },
+  mounted() {
+    console.log(this.productPrice);
   },
 };
 </script>

@@ -111,6 +111,10 @@ export default {
     position: absolute;
     z-index: 2;
 
+    @media (min-width: 1024px) {
+      display: none;
+    }
+
     &--right {
       right: 1rem;
       top: 50%;
