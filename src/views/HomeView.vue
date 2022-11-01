@@ -82,12 +82,14 @@ export default {
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
-    gap: 4rem;
     padding: 0 3.125rem;
     margin-top: 4rem;
     & > * {
       flex: 1;
     }
+  }
+  @media (min-width: 1024px) {
+    gap: 4rem;
   }
 }
 .price {

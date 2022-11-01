@@ -9,7 +9,6 @@ export default {
     addToCart(state, { productCount, price }) {
       state.cart.push({ count: productCount, price, id: Date.now() });
     },
-    //TODO: remove item from cart
     removeFromCart(state, { productId }) {
       state.cart = state.cart.filter((item) => item.id !== productId);
     },
