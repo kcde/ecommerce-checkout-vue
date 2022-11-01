@@ -11,7 +11,12 @@ export default {
   methods: {
     outsideClickListener(e) {
       //check if the clicked items is not the cart && not the cart icon
-      if (!e.target.closest(".cart") && !e.target.closest(".cart-container")) {
+
+      if (
+        !e.target.closest(".cart") &&
+        !e.target.closest(".cart-container") &&
+        !e.target.closest(".cart-item__delete")
+      ) {
         this.$emit("close-cart");
       }
     },
@@ -41,6 +46,7 @@ export default {
             :title="$store.state.product.title"
             :price="item.price"
             :count="item.count"
+            :id="item.id"
           />
         </div>
         <TheButton>Checkout</TheButton>

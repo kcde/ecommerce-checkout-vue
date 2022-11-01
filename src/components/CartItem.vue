@@ -1,5 +1,6 @@
 <script>
 import DeleteIcon from "./icons/DeleteIcon.vue";
+import { mapActions } from "vuex";
 
 export default {
   props: {
@@ -16,7 +17,7 @@ export default {
       type: Number,
     },
     id: {
-      type: String,
+      type: Number,
     },
   },
   computed: {
@@ -25,6 +26,9 @@ export default {
     },
   },
   components: { DeleteIcon },
+  methods: {
+    ...mapActions("cart", ["removeFromCart"]),
+  },
 };
 </script>
 <template>
@@ -40,7 +44,9 @@ export default {
       </div>
     </div>
 
-    <div class="class-item__delete"><DeleteIcon /></div>
+    <div class="cart-item__delete" @click="removeFromCart({ productId: id })">
+      <DeleteIcon />
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
@@ -78,6 +84,10 @@ export default {
     &--total {
       font-weight: 700;
     }
+  }
+
+  &__delete {
+    cursor: pointer;
   }
 }
 </style>

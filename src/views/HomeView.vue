@@ -31,9 +31,6 @@ export default {
   computed: {
     ...mapGetters(["productPrice"]),
   },
-  mounted() {
-    console.log(this.productPrice);
-  },
 };
 </script>
 
