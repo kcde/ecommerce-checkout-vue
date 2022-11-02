@@ -11,7 +11,9 @@ export default {
 
 <template>
   <Transition>
-    <div class="overlay" v-if="show"></div>
+    <div class="overlay" v-if="show">
+      <slot></slot>
+    </div>
   </Transition>
 </template>
 

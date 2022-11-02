@@ -11,11 +11,122 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss">
 .container {
   max-width: 69.5rem;
   margin: 0 auto;
 }
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+
+  &__image {
+    height: clamp(200px, 100vh, 300px);
+    position: relative;
+
+    @media (min-width: 758px) {
+      /* max-width: 400px; */
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    @media (min-width: 1024px) {
+      height: clamp(200px, 100vh, 400px);
+    }
+
+    .active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transform: scale(1.1);
+      transition: all 350ms ease;
+      z-index: -1;
+    }
+  }
+
+  &__control {
+    position: absolute;
+    z-index: 2;
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+
+    &--right {
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &--left {
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__thumbnails {
+    gap: 1.5rem;
+    margin-top: 2rem;
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: flex;
+    }
+
+    & > * {
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__thumbnail {
+    border: 2px solid transparent;
+    transition: all 350ms ease;
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: transparent;
+      transition: all 350ms ease;
+    }
+    &:hover {
+      &::after {
+        background-color: rgba(255, 255, 255, 0.4);
+      }
+    }
+
+    &--active {
+      border-color: var(--clr-accent);
+      &:hover {
+        &::after {
+          background-color: rgba(255, 255, 255, 0.75);
+        }
+      }
+      &::after {
+        background-color: rgba(255, 255, 255, 0.75);
+      }
+    }
+  }
+}
+
 .mobile-menu-container {
   @media (min-width: 1024px) {
     display: none;

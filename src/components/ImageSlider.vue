@@ -6,7 +6,9 @@
 //TODO: make image full width same as the slide section width
 import NextButton from "./NextButton.vue";
 import PrevButton from "./PrevButton.vue";
+import TheLightbox from "./TheLightbox.vue";
 export default {
+  emits: ["open-lightbox"],
   components: { NextButton, PrevButton },
   data() {
     return {
@@ -34,9 +36,10 @@ export default {
 };
 </script>
 <template>
+  <!-- <TheLightbox /> -->
   <div class="slider relative">
     <!-- slider image should have border on desktop and no border on mobile -->
-    <div class="slider__image">
+    <div class="slider__image" @click="$emit('open-lightbox')">
       <img
         v-for="img in $store.state.product.images.main"
         :key="img.id"

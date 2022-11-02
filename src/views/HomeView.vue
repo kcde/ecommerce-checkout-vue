@@ -6,6 +6,7 @@ import TheHeader from "../components/TheHeader.vue";
 import CartIcon from "../components/icons/CartIcon.vue";
 import ImageSlider from "../components/ImageSlider.vue";
 import { mapActions, mapGetters } from "vuex";
+import TheLightbox from "../components/TheLightbox.vue";
 export default {
   emits: ["open-menu"],
   components: {
@@ -15,6 +16,12 @@ export default {
     TheButton,
     CartIcon,
     ImageSlider,
+    TheLightbox,
+  },
+  data() {
+    return {
+      isLightboxOpen: false,
+    };
   },
   methods: {
     addProductToCart() {
@@ -25,6 +32,14 @@ export default {
         });
         this.updateProductToCartCount({ count: 0 });
       }
+    },
+    openLightbox() {
+      //TODO: open lightbox only on destop view
+      this.isLightboxOpen = true;
+    },
+
+    closeLightbox() {
+      this.isLightboxOpen = false;
     },
 
     ...mapActions("cart", ["addToCart"]),
@@ -40,9 +55,13 @@ export default {
   <TheHeader @open-menu="$emit('open-menu')" />
 
   <main>
+    <Transition name="light-box">
+      <TheLightbox v-if="isLightboxOpen" @close-lightbox="closeLightbox" />
+    </Transition>
+
     <div class="main-container">
       <section class="relative">
-        <ImageSlider />
+        <ImageSlider @open-lightbox="openLightbox" />
       </section>
       <section class="product-details">
         <div class="product-details__container">
@@ -172,6 +191,24 @@ export default {
     .add-to-cart {
       flex-grow: 2;
     }
+  }
+}
+
+.light-box-enter-active {
+  animation: fadeSlide 150ms ease-in;
+}
+
+.light-box-leave-active {
+  animation: fadeSlide 250ms ease-out;
+}
+/* just trying out opacity for Transition component */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 </style>

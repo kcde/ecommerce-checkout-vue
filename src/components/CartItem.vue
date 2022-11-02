@@ -67,6 +67,7 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    color: var(--clr-secondary);
 
     @media (min-width: 568px) {
       width: 100%;
@@ -81,8 +82,11 @@ export default {
   }
 
   &__price {
+    color: var(--clr-secondary);
+
     &--total {
       font-weight: 700;
+      color: var(--clr-primary);
     }
   }
 
