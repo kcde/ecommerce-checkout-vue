@@ -65,7 +65,7 @@ export default {
   left: 0.5rem;
   box-shadow: 0px 10px 25px -5px var(--very-dark-blue);
   top: calc(100% + 1rem);
-
+  z-index: 1;
   @media (min-width: 568px) {
     width: 100%;
     max-width: 360px;
