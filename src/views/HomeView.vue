@@ -18,11 +18,13 @@ export default {
   },
   methods: {
     addProductToCart() {
-      this.addToCart({
-        productCount: this.$store.state.productToCartCount,
-        price: this.productPrice,
-      });
-      this.updateProductToCartCount({ count: 0 });
+      if (this.$store.state.productToCartCount != 0) {
+        this.addToCart({
+          productCount: this.$store.state.productToCartCount,
+          price: this.productPrice,
+        });
+        this.updateProductToCartCount({ count: 0 });
+      }
     },
 
     ...mapActions("cart", ["addToCart"]),
