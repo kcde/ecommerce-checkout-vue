@@ -84,12 +84,13 @@ export default {
     align-items: center;
     padding: 0 3.125rem;
     margin-top: 4rem;
+    gap: var(--space-6);
     & > * {
       flex: 1;
     }
   }
   @media (min-width: 1024px) {
-    gap: 4rem;
+    gap: 6rem;
   }
 }
 .price {
@@ -125,7 +126,7 @@ export default {
 }
 
 .product-name {
-  font-size: clamp(1.3125rem, 8vw, 2rem);
+  font-size: clamp(1.3125rem, 3vw, 3rem);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.2rem;
@@ -133,14 +134,14 @@ export default {
 
 .product-description {
   color: var(--clr-secondary);
-  font-size: 0.875rem;
+  font-size: clamp(0.875rem, 5vw, 16px);
   line-height: 1.6;
 }
 
 .product-details {
   padding: 1.5rem;
-  @media (min-width: 1024px) {
-    padding: 0 3rem;
+  @media (min-width: 768px) {
+    padding: 0;
   }
 }
 
