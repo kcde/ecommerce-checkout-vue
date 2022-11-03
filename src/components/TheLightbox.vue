@@ -41,11 +41,10 @@ export default {
     <div class="lightbox">
       <div class="slider relative">
         <!-- slider image should have border on desktop and no border on mobile -->
-
+        <div class="lightbox-close" @click="$emit('close-lightbox')">
+          <CloseIcon />
+        </div>
         <div class="relative">
-          <div class="lightbox-close" @click="$emit('close-lightbox')">
-            <CloseIcon />
-          </div>
           <!-- this outer div id to allow the button overflow while maintaining the inner overflow hidden for the slider image -->
           <div class="slider__image" @click="$emit('open-lightbox')">
             <img
@@ -92,9 +91,10 @@ export default {
 }
 
 .lightbox-close {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: var(--space-4);
+  position: absolute;
+
+  right: 0;
+  top: calc(var(--space-7) * -1);
 }
 
 .slider {
