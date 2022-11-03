@@ -6,7 +6,6 @@
 //TODO: make image full width same as the slide section width
 import NextButton from "./NextButton.vue";
 import PrevButton from "./PrevButton.vue";
-import TheLightbox from "./TheLightbox.vue";
 export default {
   emits: ["open-lightbox"],
   components: { NextButton, PrevButton },

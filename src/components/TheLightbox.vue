@@ -92,7 +92,6 @@ export default {
 
 .lightbox-close {
   position: absolute;
-
   right: 0;
   top: calc(var(--space-7) * -1);
 }

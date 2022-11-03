@@ -27,6 +27,10 @@
     height: clamp(200px, 100vh, 300px);
     position: relative;
 
+    img {
+      /* border-radius: 10px; */
+    }
+
     @media (min-width: 758px) {
       border-radius: 10px;
       overflow: hidden;
@@ -50,6 +54,7 @@
       transform: scale(1.1);
       transition: all 350ms ease;
       z-index: -1;
+      border-radius: inherit;
     }
   }
 
@@ -78,6 +83,10 @@
     margin-top: 2rem;
     display: none;
     max-height: 90px;
+
+    img {
+      min-height: 100%;
+    }
 
     @media (min-width: 1024px) {
       display: flex;
