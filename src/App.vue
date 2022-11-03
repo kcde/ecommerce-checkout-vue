@@ -28,7 +28,6 @@
     position: relative;
 
     @media (min-width: 758px) {
-      /* max-width: 400px; */
       border-radius: 10px;
       overflow: hidden;
     }
@@ -47,7 +46,6 @@
       top: 0;
       object-fit: cover;
       width: 100%;
-      height: 100%;
       opacity: 0;
       transform: scale(1.1);
       transition: all 350ms ease;
@@ -79,6 +77,7 @@
     gap: 1.5rem;
     margin-top: 2rem;
     display: none;
+    max-height: 90px;
 
     @media (min-width: 1024px) {
       display: flex;
@@ -88,16 +87,13 @@
       border-radius: 10px;
       overflow: hidden;
     }
-
-    img {
-      height: 100%;
-    }
   }
 
   &__thumbnail {
     border: 2px solid transparent;
     transition: all 350ms ease;
     position: relative;
+    overflow: hidden;
     cursor: pointer;
 
     &::after {
