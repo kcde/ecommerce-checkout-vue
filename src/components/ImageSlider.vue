@@ -25,6 +25,11 @@ export default {
     setImg(id) {
       this.activeId = id;
     },
+    openLightbox() {
+      if (window.innerWidth >= 1024) {
+        this.$emit("open-lightbox");
+      }
+    },
   },
 
   computed: {
@@ -38,7 +43,7 @@ export default {
   <!-- <TheLightbox /> -->
   <div class="slider relative">
     <!-- slider image should have border on desktop and no border on mobile -->
-    <div class="slider__image" @click="$emit('open-lightbox')">
+    <div class="slider__image" @click="openLightbox">
       <img
         v-for="img in $store.state.product.images.main"
         :key="img.id"
