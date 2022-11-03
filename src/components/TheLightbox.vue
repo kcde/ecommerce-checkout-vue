@@ -37,8 +37,6 @@ export default {
 };
 </script>
 <template>
-  <!-- <TheLightbox /> -->
-
   <TheOverlay>
     <div class="lightbox">
       <div class="slider relative">

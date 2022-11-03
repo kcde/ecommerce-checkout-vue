@@ -194,12 +194,21 @@ export default {
   }
 }
 
-.light-box-enter-active {
-  animation: fadeSlide 150ms ease-in;
+.light-box-enter-from,
+.light-box-leave-to {
+  opacity: 0;
 }
 
+.light-box-enter-to,
+.light-box-leave-from {
+  opacity: 1;
+}
+
+.light-box-enter-active {
+  transition: opacity 150ms ease-in;
+}
 .light-box-leave-active {
-  animation: fadeSlide 250ms ease-out;
+  transition: opacity 150ms ease-out;
 }
 /* just trying out opacity for Transition component */
 @keyframes fadeSlide {
