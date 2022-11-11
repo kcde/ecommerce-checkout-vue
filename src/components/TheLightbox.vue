@@ -42,7 +42,7 @@ export default {
       <div class="slider relative">
         <!-- slider image should have border on desktop and no border on mobile -->
         <div class="lightbox-close" @click="$emit('close-lightbox')">
-          <CloseIcon />
+          <CloseIcon color="#ffffff" />
         </div>
         <div class="relative">
           <!-- this outer div id to allow the button overflow while maintaining the inner overflow hidden for the slider image -->

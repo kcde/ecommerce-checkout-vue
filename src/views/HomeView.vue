@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       isLightboxOpen: false,
+      windowSize: window.innerWidth,
     };
   },
   methods: {
@@ -45,8 +46,18 @@ export default {
     ...mapActions("cart", ["addToCart"]),
     ...mapActions(["updateProductToCartCount"]),
   },
+
+  mounted() {
+    window.addEventListener("resize", () => {
+      this.windowSize = window.innerWidth;
+    });
+  },
   computed: {
     ...mapGetters(["productPrice"]),
+
+    isDesktop() {
+      return this.windowSize >= 1024;
+    },
   },
 };
 </script>
@@ -56,7 +67,10 @@ export default {
 
   <main>
     <Transition name="light-box">
-      <TheLightbox v-if="isLightboxOpen" @close-lightbox="closeLightbox" />
+      <TheLightbox
+        v-if="isLightboxOpen && isDesktop"
+        @close-lightbox="closeLightbox"
+      />
     </Transition>
 
     <div class="main-container">

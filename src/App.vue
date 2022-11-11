@@ -172,6 +172,7 @@ export default {
     return {
       overlayOpen: false,
       mobileMenuOpen: false,
+      windowSize: window.innerWidth,
     };
   },
 
@@ -183,6 +184,19 @@ export default {
     hideMobileMenu() {
       this.mobileMenuOpen = false;
       this.overlayOpen = false;
+    },
+  },
+  mounted() {
+    window.addEventListener("resize", () => {
+      this.windowSize = window.innerWidth;
+    });
+  },
+
+  watch: {
+    windowSize(currentValue) {
+      if (currentValue >= 768 && this.mobileMenuOpen) {
+        this.hideMobileMenu();
+      }
     },
   },
 };
