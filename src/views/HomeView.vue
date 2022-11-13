@@ -101,7 +101,10 @@ export default {
             <div class="add-to-cart">
               <TheButton @click="addProductToCart">
                 <div class="add-to-cart__button">
-                  <span> <CartIcon color="#ffffff" /> </span>Add to cart
+                  <p>
+                    <span class="mr-4"> <CartIcon color="#ffffff" /> </span>Add
+                    to cart
+                  </p>
                 </div>
               </TheButton>
             </div>
@@ -182,9 +185,6 @@ export default {
 
 .add-to-cart {
   &__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 1rem;
     gap: var(--space-4);
   }
