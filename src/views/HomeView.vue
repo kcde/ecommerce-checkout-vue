@@ -100,12 +100,9 @@ export default {
             <div class="amount-input-container"><AmountInput /></div>
             <div class="add-to-cart">
               <TheButton @click="addProductToCart">
-                <div class="add-to-cart__button">
-                  <p>
-                    <span class="mr-4"> <CartIcon color="#ffffff" /> </span>Add
-                    to cart
-                  </p>
-                </div>
+                <p class="add-to-cart__button">
+                  <span> <CartIcon color="#ffffff" /> </span>Add to cart
+                </p>
               </TheButton>
             </div>
           </div>
@@ -185,6 +182,9 @@ export default {
 
 .add-to-cart {
   &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 1rem;
     gap: var(--space-4);
   }
