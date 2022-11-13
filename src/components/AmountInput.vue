@@ -53,7 +53,6 @@ export default {
         v-model="amount"
         name="amount-input"
         aria-label="amount input "
-        id=""
       />
     </div>
 
