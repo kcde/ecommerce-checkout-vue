@@ -4,7 +4,7 @@
 
 <template>
   <div class="avatar">
-    <img src="../assets/images/image-avatar.png" alt="user profile image" />
+    <img src="/images/image-avatar.png" alt="user profile image" />
   </div>
 </template>
 
