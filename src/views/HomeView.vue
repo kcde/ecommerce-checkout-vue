@@ -100,9 +100,8 @@ export default {
             <div class="amount-input-container"><AmountInput /></div>
             <div class="add-to-cart">
               <TheButton @click="addProductToCart">
-                <p class="add-to-cart__button">
-                  <span> <CartIcon color="#ffffff" /> </span>Add to cart
-                </p>
+                <span class="mr-4"> <CartIcon color="#ffffff" /> </span>Add to
+                cart
               </TheButton>
             </div>
           </div>
