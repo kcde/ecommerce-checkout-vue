@@ -42,12 +42,24 @@ export default {
 </script>
 <template>
   <div class="amount-input">
-    <button @click="decreaseAmount"><MinusIcon></MinusIcon></button>
+    <button aria-label="item count reduce" @click="decreaseAmount">
+      <MinusIcon></MinusIcon>
+    </button>
     <div>
-      <input type="number" min="0" v-model="amount" name="" id="" />
+      <!-- <label for="amount-input" aria-labelledby=""></label> -->
+      <input
+        type="number"
+        min="0"
+        v-model="amount"
+        name="amount-input"
+        aria-label="amount input "
+        id=""
+      />
     </div>
 
-    <button @click="increaseAmount"><PlusIcon /></button>
+    <button aria-label="item count increase" @click="increaseAmount">
+      <PlusIcon />
+    </button>
   </div>
 </template>
 <style scoped>
